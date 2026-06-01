@@ -1,0 +1,110 @@
+.story {
+  padding: 140px 0;
+
+  background: linear-gradient(
+    180deg,
+    #f7f9fc 0%,
+    #eef3f9 100%
+  );
+
+  color: #0b0f1a;
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* Soft Ford blue glow background */
+.story::before {
+  content: "";
+  position: absolute;
+  top: -250px;
+  left: -200px;
+
+  width: 700px;
+  height: 700px;
+
+  background: rgba(11, 61, 145, 0.08);
+  filter: blur(140px);
+
+  border-radius: 50%;
+
+  z-index: 0;
+}
+
+/* container */
+.story-container {
+  width: 90%;
+  max-width: 900px;
+  margin: 0 auto;
+
+  text-align: center;
+
+  position: relative;
+  z-index: 2;
+}
+
+/* title */
+.story h2 {
+  font-size: 3rem;
+  font-weight: 800;
+
+  margin-bottom: 30px;
+
+  letter-spacing: -0.5px;
+  color: #0b0f1a;
+}
+
+/* paragraphs */
+.story p {
+  font-size: 1.15rem;
+  line-height: 1.9;
+
+  color: rgba(11, 15, 26, 0.75);
+
+  margin-bottom: 22px;
+}
+
+/* highlight box */
+.story-highlight {
+  margin-top: 50px;
+  padding: 25px 30px;
+
+  background: rgba(11, 61, 145, 0.06);
+
+  border: 1px solid rgba(11, 61, 145, 0.15);
+  border-left: 4px solid #0b3d91;
+
+  border-radius: 14px;
+
+  font-style: italic;
+  font-weight: 500;
+
+  color: #0b0f1a;
+
+  backdrop-filter: blur(10px);
+
+  transition: all 0.3s ease;
+}
+
+/* hover effect (premium touch) */
+.story-highlight:hover {
+  transform: translateY(-3px);
+  border-color: rgba(11, 61, 145, 0.3);
+}
+
+/* span (vurgular için) */
+.story span {
+  color: #0b3d91;
+  font-weight: 600;
+}
+
+/* mobile */
+@media (max-width: 768px) {
+  .story h2 {
+    font-size: 2rem;
+  }
+
+  .story p {
+    font-size: 1rem;
+  }
+}

@@ -1,0 +1,93 @@
+.gallery {
+  padding: 120px 0;
+  text-align: center;
+  background: #0b0f1a;
+  color: white;
+}
+
+.gallery h2 {
+  font-size: 2.4rem;
+  margin-bottom: 50px;
+}
+
+/* THUMBNAILS */
+.gallery-img {
+  width: 100%;
+  height: 300px;
+  object-fit: cover;
+
+  border-radius: 16px;
+  cursor: pointer;
+
+  transition: transform 0.3s ease;
+}
+
+.gallery-img:hover {
+  transform: scale(1.03);
+}
+
+/* Swiper default arrows */
+.swiper-button-next,
+.swiper-button-prev {
+  color: #0078ff;
+}
+
+/* pagination */
+.swiper-pagination-bullet {
+  background: white;
+  opacity: 0.4;
+}
+
+.swiper-pagination-bullet-active {
+  background: #0078ff;
+  opacity: 1;
+}
+
+/* LIGHTBOX */
+.lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.95);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  z-index: 9999;
+}
+
+.lightbox-content {
+  width: 90%;
+  height: 90%;
+
+  display: flex;
+}
+
+/* Swiper inside lightbox MUST fill area */
+.lightbox .swiper {
+  width: 100%;
+  height: 100%;
+}
+
+.lightbox .swiper-slide {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* arrows more visible */
+.lightbox .swiper-button-next,
+.lightbox .swiper-button-prev {
+  color: white;
+}
+
+/* pagination */
+.lightbox .swiper-pagination-bullet {
+  background: white;
+}
