@@ -7,7 +7,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 import img1 from "../../assets/images/1.jpg";
 import img2 from "../../assets/images/2.jpg";
@@ -36,7 +36,11 @@ import img24 from "../../assets/images/24.jpg";
 import img25 from "../../assets/images/25.jpg";
 import img26 from "../../assets/images/26.jpg";
 
-const images = [img1, img2, img3, img4, img5, img6, img7, img8, img9, img10, img11, img12, img13, img14, img15, img16, img17, img18, img19, img20, img21, img22, img23, img24, img25, img26];
+const images = [
+    img1, img2, img3, img4, img5, img6, img7, img8, img9, img10,
+    img11, img12, img13, img14, img15, img16, img17, img18, img19, img20,
+    img21, img22, img23, img24, img25, img26
+];
 
 const Gallery = () => {
     const [open, setOpen] = useState(false);
@@ -47,9 +51,23 @@ const Gallery = () => {
         setOpen(true);
     };
 
+    // ESC ile kapatma
+    useEffect(() => {
+        const handleKeyDown = (e) => {
+            if (e.key === "Escape") {
+                setOpen(false);
+            }
+        };
+
+        window.addEventListener("keydown", handleKeyDown);
+
+        return () => {
+            window.removeEventListener("keydown", handleKeyDown);
+        };
+    }, []);
+
     return (
         <section className="gallery" id="gallery">
-
             <h2>Fotoğraf Galerisi</h2>
 
             {/* THUMBNAIL SLIDER */}
@@ -69,7 +87,7 @@ const Gallery = () => {
                         <img
                             loading="lazy"
                             src={img}
-                            alt={`car-${i}`}
+                            alt={`car-${i + 1}`}
                             className="gallery-img"
                             onClick={() => openLightbox(i)}
                         />
@@ -79,36 +97,45 @@ const Gallery = () => {
 
             {/* LIGHTBOX */}
             {open && (
-                <div className="lightbox" onClick={() => setOpen(false)}>
-
+                <div
+                    className="lightbox"
+                    onClick={() => setOpen(false)}
+                >
                     <div
                         className="lightbox-content"
                         onClick={(e) => e.stopPropagation()}
                     >
+                        <button
+                            className="lightbox-close"
+                            onClick={() => setOpen(false)}
+                            aria-label="Galeriyi kapat"
+                        >
+                            ×
+                        </button>
 
                         <Swiper
-                            key={open ? "open" : "closed"}
+                            key={`lightbox-${startIndex}`}
                             modules={[Navigation, Pagination]}
                             navigation
                             pagination={{ clickable: true }}
                             initialSlide={startIndex}
                             spaceBetween={10}
                             slidesPerView={1}
-                            observer={true}
-                            observeParents={true}
+                            observer
+                            observeParents
                         >
                             {images.map((img, i) => (
                                 <SwiperSlide key={i}>
-                                    <img src={img} alt={`full-${i}`} />
+                                    <img
+                                        src={img}
+                                        alt={`full-${i + 1}`}
+                                    />
                                 </SwiperSlide>
                             ))}
                         </Swiper>
-
                     </div>
-
                 </div>
             )}
-
         </section>
     );
 };
