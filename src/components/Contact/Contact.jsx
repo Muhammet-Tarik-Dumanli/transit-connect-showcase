@@ -1,6 +1,6 @@
 import "./Contact.css";
 import { FaPhone, FaWhatsapp } from "react-icons/fa";
-
+import sahibinden_logo from "../../assets/images/sahibindencom-logo.png"
 const Contact = () => {
   const phoneNumber = "0533 654 47 53";
 
@@ -33,6 +33,19 @@ const Contact = () => {
             <FaWhatsapp /> WhatsApp
           </a>
 
+          <a
+            href="https://www.sahibinden.com/ilan/vasita-minivan-panelvan-ford-sahibinden-yasinin-iyisi-1314826069/detay"
+            className="btn sahibinden"
+            target="_blank"
+            rel="noreferrer"
+          >
+            <img
+              src={sahibinden_logo}
+              alt="Sahibinden"
+              className="sahibinden-logo"
+            />
+            İlanı Gör
+          </a>
         </div>
 
         <div className="note">

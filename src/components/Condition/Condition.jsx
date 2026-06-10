@@ -9,7 +9,8 @@ const Condition = () => {
     "Motor durumu iyi",
     "Ekspertize açık",
     "Düzenli bakımlı",
-    "Akü yeni değişti"
+    "Akü yeni değişti",
+    "05.04.2027 tarihine kadar geçerli muayene"
   ];
 
   return (
