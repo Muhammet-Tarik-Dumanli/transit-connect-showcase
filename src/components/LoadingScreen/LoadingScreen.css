@@ -1,7 +1,6 @@
 .loading-screen {
     position: fixed;
     inset: 0;
-
     z-index: 99999;
 
     display: flex;
@@ -9,11 +8,9 @@
     align-items: center;
 
     overflow: hidden;
-
-    animation: screenFade 4.5s forwards;
 }
 
-/* HERO BLUR BACKGROUND */
+/* BACKGROUND */
 
 .loading-bg {
     position: absolute;
@@ -23,23 +20,18 @@
     background-size: cover;
     background-position: center;
 
-    transform: scale(1.1);
-
-    filter: blur(25px);
-
-    opacity: 0.45;
+    transform: scale(1.15);
+    filter: blur(28px);
 }
 
 .loading-bg::after {
     content: "";
-
     position: absolute;
     inset: 0;
 
-    background:
-        linear-gradient(135deg,
-            rgba(11, 61, 145, 0.65),
-            rgba(0, 0, 0, 0.55));
+    background: linear-gradient(135deg,
+            rgba(11, 61, 145, 0.75),
+            rgba(0, 0, 0, 0.65));
 }
 
 /* CONTENT */
@@ -48,112 +40,130 @@
     position: relative;
     z-index: 2;
 
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
     text-align: center;
 }
 
+/* LOGO */
+
 .ford-logo {
-    width: 150px;
-    animation: fordIntro 3s ease forwards;
+    width: 230px;
+    opacity: 0;
+
+    animation: logoEntrance 2.2s ease forwards;
 }
 
-.brand-name {
+/* TITLE */
+
+.launch-title {
+    margin-top: 30px;
     color: white;
 
-    margin-top: 25px;
+    font-size: clamp(2rem, 5vw, 4rem);
+    font-weight: 800;
 
-    letter-spacing: 6px;
-
-    font-size: 2rem;
-
+    letter-spacing: 10px;
     text-transform: uppercase;
 
     opacity: 0;
 
-    animation:
-        fadeIn 1s ease forwards;
-
+    animation: titleReveal 1s ease forwards;
     animation-delay: 1s;
 }
 
-.intro-text {
-    color: white;
+/* INFO */
 
-    margin-top: 15px;
+.launch-info {
+    display: flex;
+    gap: 15px;
+    margin-top: 20px;
+
+    color: rgba(255, 255, 255, 0.85);
+    font-size: clamp(0.9rem, 2vw, 1.1rem);
 
     letter-spacing: 4px;
-
-    font-size: 1rem;
-
-    opacity: 0;
-
-    animation:
-        fadeIn 1s ease forwards;
-
-    animation-delay: 1.8s;
+    text-transform: uppercase;
 }
 
-/* FORD ANIMATION */
+.launch-info span {
+    opacity: 0;
+    transform: translateY(15px);
+    filter: blur(8px);
 
-@keyframes fordIntro {
+    animation: infoReveal 0.5s forwards;
+}
 
+.launch-info span:nth-child(1) {
+    animation-delay: 2.2s;
+}
+
+.launch-info span:nth-child(2) {
+    animation-delay: 2.35s;
+}
+
+.launch-info span:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+/* ANIMATIONS */
+
+@keyframes logoEntrance {
     0% {
-        transform:
-            translateY(-300px) scale(0.25) rotateY(0deg);
-
         opacity: 0;
+        transform: translateY(-300px) scale(0.2) rotateY(0deg);
     }
 
-    40% {
-        transform:
-            translateY(0) scale(1.4) rotateY(540deg);
-
+    50% {
         opacity: 1;
-    }
-
-    70% {
-        transform:
-            translateY(0) scale(1.15) rotateY(900deg);
-
-        opacity: 1;
+        transform: translateY(0) scale(1.3) rotateY(540deg);
     }
 
     100% {
-        transform:
-            translateY(0) scale(1) rotateY(1080deg);
-
         opacity: 1;
+        transform: translateY(0) scale(1) rotateY(1080deg);
     }
 }
 
-/* TEXT */
-
-@keyframes fadeIn {
-
-    from {
+@keyframes titleReveal {
+    0% {
         opacity: 0;
-        transform: translateY(25px);
+        transform: translateY(30px);
+        letter-spacing: 25px;
+        filter: blur(12px);
     }
 
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+        letter-spacing: 10px;
+        filter: blur(0);
+    }
+}
+
+@keyframes infoReveal {
     to {
         opacity: 1;
         transform: translateY(0);
+        filter: blur(0);
     }
 }
 
-/* SCREEN EXIT */
+/* MOBILE */
 
-@keyframes screenFade {
-
-    0% {
-        opacity: 1;
+@media (max-width: 768px) {
+    .ford-logo {
+        width: 170px;
     }
 
-    90% {
-        opacity: 1;
+    .launch-title {
+        letter-spacing: 6px;
     }
 
-    100% {
-        opacity: 0;
-        visibility: hidden;
+    .launch-info {
+        flex-direction: column;
+        gap: 8px;
     }
 }

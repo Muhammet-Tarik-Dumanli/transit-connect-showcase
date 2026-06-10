@@ -7,7 +7,7 @@ const Video = () => {
   return (
     <section className="video-section" id="video">
 
-      <h2>Hayal Gücünün Ötesinde</h2>
+      <h2>Fark Yaratır</h2>
 
       <div className="video-grid">
 

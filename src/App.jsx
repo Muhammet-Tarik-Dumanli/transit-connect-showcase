@@ -14,14 +14,6 @@ function App() {
   const [scroll, setScroll] = useState(0);
   const [loading, setLoading] = useState(true);
 
-  // Loading Screen
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setLoading(false);
-    }, 2500);
-
-    return () => clearTimeout(timer);
-  }, []);
 
   // Scroll Progress Bar
   useEffect(() => {
@@ -34,13 +26,14 @@ function App() {
     };
 
     window.addEventListener("scroll", handleScroll);
-
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Loading ekranı göster
+  // Loading ekranı
   if (loading) {
-    return <LoadingScreen />;
+    return (
+      <LoadingScreen onFinish={() => setLoading(false)} />
+    );
   }
 
   return (

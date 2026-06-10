@@ -3,6 +3,7 @@
   height: 100vh;
   min-height: 600px;
   overflow: hidden;
+  animation: heroAnimation 1.3s ease;
 }
 
 .hero-image {
@@ -229,6 +230,20 @@
 
   to {
     filter: blur(0);
+    transform: scale(1);
+  }
+}
+
+@keyframes heroAnimation {
+  from {
+    filter: blur(18px);
+    opacity: 0.6;
+    transform: scale(1.03);
+  }
+
+  to {
+    filter: blur(0);
+    opacity: 1;
     transform: scale(1);
   }
 }

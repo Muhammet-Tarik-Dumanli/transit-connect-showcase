@@ -1,7 +1,17 @@
+import { useEffect } from "react";
 import "./LoadingScreen.css";
 import ford_logo from "../../assets/images/ford-logo.png";
 
-const LoadingScreen = () => {
+const LoadingScreen = ({ onFinish }) => {
+
+    useEffect(() => {
+        const timer = setTimeout(() => {
+            onFinish(); // loading kapat
+        }, 4500); // TAM timeline süresi
+
+        return () => clearTimeout(timer);
+    }, [onFinish]);
+
     return (
         <div className="loading-screen">
 
@@ -9,19 +19,23 @@ const LoadingScreen = () => {
 
             <div className="loading-content">
 
-                <img
-                    src={ford_logo}
-                    alt="Ford"
-                    className="ford-logo"
-                />
+                <div className="logo-wrapper">
+                    <img
+                        src={ford_logo}
+                        alt="Ford"
+                        className="ford-logo"
+                    />
+                </div>
 
-                <h2 className="brand-name">
-                    Transit Connect
-                </h2>
+                <h1 className="launch-title">
+                    TRANSIT CONNECT
+                </h1>
 
-                <p className="intro-text">
-                    2003 FORD TRANSIT CONNECT
-                </p>
+                <div className="launch-info">
+                    <span>2003 MODEL</span>
+                    <span>•</span>
+                    <span>184.100 KM</span>
+                </div>
 
             </div>
 
