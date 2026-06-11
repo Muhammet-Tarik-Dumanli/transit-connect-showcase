@@ -86,6 +86,7 @@ const Gallery = () => {
                     <SwiperSlide key={i}>
                         <img
                             loading="lazy"
+                            decoding="async"
                             src={img}
                             alt={`car-${i + 1}`}
                             className="gallery-img"

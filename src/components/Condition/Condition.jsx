@@ -10,7 +10,8 @@ const Condition = () => {
     "Ekspertize açık",
     "Düzenli bakımlı",
     "Akü yeni değişti",
-    "05.04.2027 tarihine kadar geçerli muayene"
+    "05.04.2027 tarihine kadar geçerli muayene",
+    "Kilometre orijinaldir"
   ];
 
   return (

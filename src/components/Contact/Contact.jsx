@@ -9,13 +9,13 @@ const Contact = () => {
 
       <div className="contact-container">
 
-        <h2>İletişim</h2>
-
         <div className="price-box">
           <span>Fiyat</span>
           <h1>319.900 TL</h1>
           <p>Pazarlık araç başında yapılır</p>
         </div>
+
+        <h2>İletişim</h2>
 
         <div className="contact-buttons">
 
