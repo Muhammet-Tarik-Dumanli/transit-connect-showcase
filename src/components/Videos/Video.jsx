@@ -22,7 +22,8 @@ const Video = () => {
         >
           <video controls
             preload="metadata"
-            poster={videoCover1}>
+            poster={videoCover1}
+            playsInline>
             <source src={video1} type="video/mp4" />
           </video>
           <p>Göz Alıcı</p>
@@ -37,7 +38,8 @@ const Video = () => {
         >
           <video controls
             preload="metadata"
-            poster={videoCover2}>
+            poster={videoCover2}
+            playsInline>
             <source src={video2} type="video/mp4" />
           </video>
           <p>Sürükleyici</p>
