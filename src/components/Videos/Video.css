@@ -24,13 +24,21 @@
   background: rgba(255, 255, 255, 0.03);
   border-radius: 16px;
   padding: 15px;
-
   border: 1px solid rgba(255, 255, 255, 0.08);
+  overflow: hidden;
 }
 
 .video-card video {
   width: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
   border-radius: 12px;
+  display: block;
+  transition: transform 0.4s ease;
+}
+
+.video-card:hover video {
+  transform: scale(1.03);
 }
 
 .video-card p {
