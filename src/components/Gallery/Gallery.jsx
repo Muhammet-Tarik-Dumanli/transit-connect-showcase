@@ -85,7 +85,6 @@ const Gallery = () => {
                 {images.map((img, i) => (
                     <SwiperSlide key={i}>
                         <img
-                            loading="lazy"
                             decoding="async"
                             src={img}
                             alt={`car-${i + 1}`}
