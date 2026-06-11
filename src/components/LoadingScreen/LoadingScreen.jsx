@@ -7,7 +7,7 @@ const LoadingScreen = ({ onFinish }) => {
     useEffect(() => {
         const timer = setTimeout(() => {
             onFinish(); // loading kapat
-        }, 4500); // TAM timeline süresi
+        }, 3100); // TAM timeline süresi
 
         return () => clearTimeout(timer);
     }, [onFinish]);

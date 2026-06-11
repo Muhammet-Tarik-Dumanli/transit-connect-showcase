@@ -2,6 +2,8 @@ import "./Video.css";
 import { motion } from "framer-motion";
 import video1 from "../../assets/videos/1.mp4";
 import video2 from "../../assets/videos/2.mp4";
+import videoCover1 from "../../assets/images/24.jpg";
+import videoCover2 from "../../assets/images/25.jpg";
 
 const Video = () => {
   return (
@@ -18,7 +20,9 @@ const Video = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <video controls>
+          <video controls
+            preload="metadata"
+            poster={videoCover1}>
             <source src={video1} type="video/mp4" />
           </video>
           <p>Göz Alıcı</p>
@@ -31,7 +35,9 @@ const Video = () => {
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
         >
-          <video controls>
+          <video controls
+            preload="metadata"
+            poster={videoCover2}>
             <source src={video2} type="video/mp4" />
           </video>
           <p>Sürükleyici</p>

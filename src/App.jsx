@@ -9,11 +9,16 @@ import Video from "./components/Videos/Video";
 import Condition from "./components/Condition/Condition";
 import Contact from "./components/Contact/Contact";
 import LoadingScreen from "./components/LoadingScreen/LoadingScreen";
+import heroImage from "./assets/images/hero.jpg";
 
 function App() {
   const [scroll, setScroll] = useState(0);
   const [loading, setLoading] = useState(true);
 
+  useEffect(() => {
+    const img = new Image();
+    img.src = heroImage;
+  }, []);
 
   // Scroll Progress Bar
   useEffect(() => {
